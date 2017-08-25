@@ -12,4 +12,11 @@ Linux常用命令
 
 #查看系统信息 lsb_release -a
 
+#防火墙（启动、关闭、状态） 
+systemctl start firewalld 
+systemctl enable firewalld 
+systemctl stop firewalld
+systemctl disable firewalld
+systemctl status firewalld
+	
 
