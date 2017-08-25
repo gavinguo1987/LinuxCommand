@@ -19,4 +19,8 @@ systemctl stop firewalld
 systemctl disable firewalld
 systemctl status firewalld
 	
+#查找文件 find / -name java
 
+#查找Java which java
+
+#查看详情 ll
