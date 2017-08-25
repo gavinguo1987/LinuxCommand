@@ -10,4 +10,6 @@ Linux常用命令
 
 #远程传输 scp hadoop-2.7.4.tar.gz root@192.168.2.201:/usr/local
 
+#查看系统信息 lsb_release -a
+
 
