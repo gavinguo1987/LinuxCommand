@@ -24,3 +24,5 @@ systemctl status firewalld
 #查找Java which java
 
 #查看详情 ll
+
+#查找软件 whereis zlib
