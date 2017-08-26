@@ -8,6 +8,8 @@ Linux常用命令
 
 #建立软连接 ln -s /usr/local/linux/work  /local/linkwork
 
+#拷贝(-r包括文件夹) cp -r /usr/local/linux/work  /local/linkwork
+
 #远程传输 scp hadoop-2.7.4.tar.gz root@192.168.2.201:/usr/local
 
 #查看系统信息 lsb_release -a
