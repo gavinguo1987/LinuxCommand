@@ -36,3 +36,11 @@ systemctl status firewalld
 192.168.2.203 node3
 192.168.2.204 node4
 192.168.2.205 node5
+
+#免密码登录
+#生成公钥私钥
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+#将公钥导出为认证的key文件
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+#修改key文件权限
+chmod 0600 ~/.ssh/authorized_keys
