@@ -28,3 +28,11 @@ systemctl status firewalld
 #查看详情 ll
 
 #查找软件 whereis zlib
+
+#DNS配置 vi /etc/hosts
+192.168.2.200 node0
+192.168.2.201 node1
+192.168.2.202 node2
+192.168.2.203 node3
+192.168.2.204 node4
+192.168.2.205 node5
