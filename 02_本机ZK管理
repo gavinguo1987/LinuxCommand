@@ -1,0 +1,13 @@
+/usr/local/zkCluster/zkserver001/zookeeper/bin/zkServer.sh start
+/usr/local/zkCluster/zkserver002/zookeeper/bin/zkServer.sh start
+/usr/local/zkCluster/zkserver003/zookeeper/bin/zkServer.sh start
+/usr/local/zkCluster/zkserver004/zookeeper/bin/zkServer.sh start
+/usr/local/zkCluster/zkserver005/zookeeper/bin/zkServer.sh start
+
+jps
+ps -ef | grep QuorumPeerMain
+
+sudo /usr/local/zkCluster/zkserver001/zookeeper/bin/zkServer.sh start
+sudo /usr/local/zkCluster/zkserver001/zookeeper/bin/zkServer.sh status
+
+nohup ./bin/zookeeper-server-start.sh config/zookeeper.properties >logs/zookeeper.log 2>1 &
