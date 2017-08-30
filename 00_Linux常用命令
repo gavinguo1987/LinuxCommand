@@ -44,3 +44,7 @@ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 #修改key文件权限
 chmod 0600 ~/.ssh/authorized_keys
+
+#查看字符集 echo $LANG
+
+#yum命令 yum list gzip ,yum install gzip
