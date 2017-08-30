@@ -1,0 +1,80 @@
+1.MySQL
+
+	net start mysql  
+
+        修改密码
+	use mysql;  
+	select host,user,password from user;  
+	update user set password =password('root') where user='root';  
+	flush privileges;  
+
+
+
+2.zookeeper
+	ps -ef | grep QuorumPeerMain
+	vi /usr/local/zookeeper_cluster/zkserver/zookeeper/conf/zoo.cfg
+	
+	删除配置文件
+	rm -rf  /usr/local/zookeeper_cluster/zkserver/data/version-2
+	rm -rf  /usr/local/zookeeper_cluster/zkserver/data/zookeeper_server.pid
+	rm -rf /usr/local/zookeeper_cluster/zkserver/logs/version-2
+	
+	启动服务
+	/usr/local/zookeeper_cluster/zkserver/zookeeper/bin/zkServer.sh start
+
+	检查集群状态
+	/usr/local/zookeeper_cluster/zkserver/zookeeper/bin/zkServer.sh status
+
+	链接集群
+	/usr/local/zookeeper_cluster/zkserver/zookeeper/bin/zkCli.sh -server 192.168.2.200:2181
+
+3.redis
+	启动服务
+	/usr/local/bin/redis-server /usr/local/redis_cluster/5001/redis.conf
+	ps -ef | grep redis
+	netstat -tnlp | grep redis
+	
+     【ip改变后要重新建立集群】
+	vi /usr/local/redis_cluster/5001/redis.conf
+
+	删除配置文件
+ 	cd /usr/local/redis_cluster/5001
+	rm -rf appendonly.aof
+	rm -rf dump.rdb
+	rm -rf nodes-5001.conf
+	rm -rf output.log
+	rm -rf redis_cluster_5001.pid
+	ls
+
+	重新创建集群
+	-首先启动redis
+	-遇到节点不能连接可能是因为防火墙没关
+	#停止firewall
+	#禁止firewall开机启动
+	
+
+	systemctl stop firewalld
+	systemctl disable firewalld
+
+	防火墙不能关闭可以尝试重装
+	firewall-cmd --state
+	systemctl list-units --type=service
+	yum install firewalld
+	systemctl enable firewalld
+	systemctl start firewalld
+	
+	重新创建集群	
+	/usr/local/redis-3.2.8/src/redis-trib.rb  create  --replicas  1  192.168.2.200:5001 192.168.2.201:5001 192.168.2.202:5001 192.168.2.203:5001 192.168.2.204:5001 192.168.2.205:5001 
+
+	检查集群状态
+	/usr/local/redis-3.2.8/src/redis-trib.rb check 192.168.2.200:5001
+	
+	验证集群
+	node0
+	/usr/local/bin/redis-cli -h 192.168.2.4 -c -p 5001
+	set ni hao
+
+	node5
+	/usr/local/bin/redis-cli -h 192.168.2.9 -c -p 5001
+	get ni
+
