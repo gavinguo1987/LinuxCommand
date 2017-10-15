@@ -51,3 +51,8 @@ chmod 0600 ~/.ssh/authorized_keys
 
 #查看运行在21端口的服务
 netstat -nltp | grep 21
+
+#对Catalina文件夹下所有文件及目录授权
+chmod -R 777 Catalina
+#将Catalina文件夹所有者改为GavinGuo
+chown -R GavinGuo Catalina
