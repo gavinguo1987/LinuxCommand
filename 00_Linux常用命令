@@ -48,3 +48,6 @@ chmod 0600 ~/.ssh/authorized_keys
 #查看字符集 echo $LANG
 
 #yum命令 yum list gzip ,yum install gzip
+
+#查看运行在21端口的服务
+netstat -nltp | grep 21
