@@ -56,3 +56,6 @@ netstat -nltp | grep 21
 chmod -R 777 Catalina
 #将Catalina文件夹所有者改为GavinGuo
 chown -R GavinGuo Catalina
+
+#查看磁盘空间
+df -h 
