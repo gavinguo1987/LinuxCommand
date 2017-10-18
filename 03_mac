@@ -1,0 +1,3 @@
+#安全性与隐私开启“任何来源”
+sudo spctl --master-disable
+输入密码，回车
